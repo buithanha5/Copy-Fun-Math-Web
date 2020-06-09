@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fun Math web</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" media="screen" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body class="screen_body">
+    <script src="..\javascript\queryfunc.js"></script>
+
+    <div class="main_box">
+        <canvas style="position:relative; z-index:-1;min-width:100%;min-height:100%;" id="cv1"></canvas>
+        <div class="main_menu">
+            <a> setting </a>
+            <a class="box_1" href="..\html\screenGame.html">
+                <img id="play_button" onmousemove="loadWidth()" src="..\asset\chơi.svg">
+            </a>
+            <a> about </a>
+        </div>
+
+    </div>
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script> -->
+    <script src="..\javascript\bubbly_bg.js"></script>
+    <!-- <script>bubbly();</script> -->
+    <script>
+        var abc = (cv) => bubbly({
+
+            bubbles: 60,
+            canvas: cv
+        });
+        var cv1 = document.getElementById('cv1');
+        // var cv2 = document.getElementById("cv2", '#867141', '#04ef1a');
+        window.onload = () => {
+            abc(cv1);
+            loadWidth();
+            // abc(cv2);
+        }
+    </script>
+</body>
+
+</html>
