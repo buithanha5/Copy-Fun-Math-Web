@@ -11,10 +11,10 @@
 </head>
 
 <body class="screen_body">
-    <script src="javascript\queryfunc.js"></script>
+    <canvas id="cv2"></canvas>
 
     <div class="main_box">
-        <canvas style="position:relative; z-index:-1;min-width:100%;min-height:100%;" id="cv1"></canvas>
+        <canvas id="cv1"></canvas>
         <div class="main_menu">
             <a> setting </a>
             <a class="box_1" href="html\screenGame.html">
@@ -29,19 +29,18 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script> -->
     <script src="javascript\bubbly_bg.js"></script>
-    <!-- <script>bubbly();</script> -->
+    <script src="javascript\queryfunc.js"></script>
     <script>
         var abc = (cv) => bubbly({
-
             bubbles: 60,
             canvas: cv
         });
         var cv1 = document.getElementById('cv1');
-        // var cv2 = document.getElementById("cv2", '#867141', '#04ef1a');
+        var cv2 = document.getElementById("cv2");
         window.onload = () => {
             abc(cv1);
             loadWidth();
-            // abc(cv2);
+            abc(cv2);
         }
     </script>
 </body>

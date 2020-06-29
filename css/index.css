@@ -10,9 +10,6 @@
     width: 50%;
     position: fixed;
     display: flex;
-    flex-direction: column, row;
-    text-align: center;
-    align-items: center;
     border-radius: 10px;
     border-color: rgb(37, 236, 37);
     border-width: 5px;
@@ -30,6 +27,24 @@
     border-width: 10px;
     border-color: #096cc1;
     border-style: solid;
+    align-self: center;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+#cv1 {
+    position: relative;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#cv2 {
+    position: fixed;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 #play_button {
@@ -42,7 +57,51 @@
     cursor: pointer;
 }
 
+.button1 {
+    margin-top: 10%;
+}
+
 #play_button:hover {
     background-color: pink;
     border-radius: 120px;
+}
+
+#pause_button {
+    position: fixed;
+    align-self: flex-start;
+}
+
+#clock {
+    position: absolute;
+    margin-left: 48%;
+    align-self: flex-start;
+}
+
+#score {
+    position: absolute;
+    align-self: flex-start;
+    margin-left: 98%;
+}
+
+#answer_box {
+    position: absolute;
+    align-self: flex-end;
+    height: 15%;
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+#main_question {
+    color: rgb(0, 0, 0);
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: rgb(240, 238, 235);
+    align-self: center;
+    width: 120px;
+    height: 60px;
+    border-style: hidden;
+    border-radius: 5px;
+    text-align: center;
 }
