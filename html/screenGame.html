@@ -6,37 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fun Math web</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onclick="playAudio('audio1')">
+    <audio id="audio1" src="..\asset\marzl.mp3" autoplay loop style="display: none;"></audio>
+    <audio id="audio2" src="..\asset\chooseRight.mp3" style="display: none;"></audio>
+    <audio id="audio3" src="..\asset\GameOver.mp3" style="display: none;"></audio>
     <canvas style="position: fixed; z-index:-1;min-width:100vw;min-height:100vh;" id="cv3"></canvas>
 
     <div class="main_box">
-        <canvas id=""></canvas>
 
-        <button id="pause_button" onclick="clickOnPlay(),pause()" style="display: none;">pause</button>
+        <button class="fa fa-pause fa-3x" id="pause_button" aria-hidden="true" onclick="clickOnPlay(),pause()" style="display: none;"></button>
+        <div id="clock">0</div>
 
-        <button id="clock">10</button>
+        <div id="score">0</div>
 
-        <button id="score">0</button>
-
-        <div class="main_menu" id="nav1">
-            <button class="button1"> replay </button>
-            <button class="button1" onclick="clickOnPlay(),play()">play</button>
-            <button class="button1">
-                <a href="../index.html"> home </a>   
-            </button>
+        <div class="box_content" id="nav1">
+            <div class="menu_play">
+                <button class="button1" onclick="replay()">chơi lại</button>
+                <button class="button1" id="continue" onclick="clickOnPlay(),play()">tiếp tục</button>
+                <button class="button1">
+                    <a href="../index.html">trở về</a>   
+                </button>
+            </div>
             <div id="over"></div>
         </div>
+        <div class="question_box" id="main_question" style="display :none;">
+            <div id="question"></div>
+        </div>
 
-        <div id="main_question" style="display :none;"> </div>
 
         <div id="answer_box" style="display: none;">
-            <button class="answer_button" id="ans1" onclick="checkresult('ans1')"></button>
-            <button class="answer_button" id="ans2" onclick="checkresult('ans2')"></button>
-            <button class="answer_button" id="ans3" onclick="checkresult('ans3')"></button>
+            <div class="ans_content">
+                <button class="answer_button" id="ans1" onclick="checkresult('ans1')"></button>
+                <button class="answer_button" id="ans2" onclick="checkresult('ans2')"></button>
+                <button class="answer_button" id="ans3" onclick="checkresult('ans3')"></button>
+            </div>
+
         </div>
 
 
@@ -48,7 +57,8 @@
     <script>
         var abc = (cv) => bubbly({
             bubbles: 60,
-            canvas: cv
+            canvas: cv,
+            angleFunc: () => -Math.PI / 2 + (Math.random() - 0.5) * Math.PI / 2,
         });
         var cv1 = document.getElementById('cv3');
         window.onload = () => {

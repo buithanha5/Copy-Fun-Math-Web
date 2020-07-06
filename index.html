@@ -6,41 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fun Math web</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="javascript\queryfunc.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body class="screen_body">
-    <canvas id="cv2"></canvas>
+<body class="screen_body" onclick="playAudio()">
+    <audio id="audio1" src="asset\marzl.mp3" autoplay loop style="display: none;"></audio>
+    <canvas id="cv1"></canvas>
 
     <div class="main_box">
-        <canvas id="cv1"></canvas>
-        <div class="main_menu">
-            <a> setting </a>
-            <a class="box_1" href="html\screenGame.html">
-                <img id="play_button" onmousemove="loadWidth()" src="asset\chơi.svg">
-            </a>
-            <a> about </a>
+        <div class="fame_logo">
+            <img id="logo_game" onload="loadWidth('logo_game')" src="asset\Frame 13.svg">
         </div>
-
+        <div class="main_menu">
+            <a class="box_1">
+                <img id="setting_button" onload="loadWidth('setting_button')" onclick="" src="asset\Frame 14.svg">
+            </a>
+            <a class="box_1" href="html\screenGame.html">
+                <img id="play_button" onload="loadWidth('play_button')" src="asset\Frame 3.svg">
+            </a>
+            <a class="box_1">
+                <img id="about_button" onload="loadWidth('about_button')" src="asset\Frame 15.svg">
+            </a>
+        </div>
     </div>
 
 
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script> -->
     <script src="javascript\bubbly_bg.js"></script>
-    <script src="javascript\queryfunc.js"></script>
+
     <script>
         var abc = (cv) => bubbly({
             bubbles: 60,
-            canvas: cv
+            canvas: cv,
+            angleFunc: () => -Math.PI / 2 + (Math.random() - 0.5) * Math.PI / 2,
         });
         var cv1 = document.getElementById('cv1');
-        var cv2 = document.getElementById("cv2");
         window.onload = () => {
             abc(cv1);
-            loadWidth();
-            abc(cv2);
+
         }
     </script>
 </body>
