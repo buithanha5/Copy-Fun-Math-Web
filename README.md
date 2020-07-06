@@ -9,3 +9,5 @@ ngôn ngữ lập trình : javascript,css, html.
 tài liệu tham khảo : https://www.w3schools.com/ .
 ## link đến github page : 
 [bài tập lớn](https://buithanha5.github.io/Copy-Fun-Math-Web/).
+## cách cài đặt và sử dụng :
+truy cập link bên trên và đọc phần hướng dẫn .
