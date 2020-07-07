@@ -12,20 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body class="screen_body" onclick="playAudio()">
-    <audio id="audio1" src="asset\marzl.mp3" autoplay loop style="display: none;"></audio>
+<body class="screen_body" onclick="playAudio('audio1')">
+    <audio id="audio1" src="asset\marzl.mp3" autoplay loop controls style="display: none;"></audio>
+    <audio id="audio2" src="asset\chooseRight.mp3" style="display: none;"></audio>
+    <audio id="audio3" src="asset\GameOver.mp3" style="display: none;"></audio>
     <canvas id="cv1"></canvas>
 
-    <div class="main_box">
+    <div class="main_box" id="main_nav">
         <div class="fame_logo">
             <img id="logo_game" onload="loadWidth('logo_game')" src="asset\Frame 13.svg">
         </div>
         <div class="main_menu">
             <a class="box_1">
-                <img id="setting_button" onload="loadWidth('setting_button')" onclick="" src="asset\Frame 14.svg">
+                <img id="setting_button" onload="loadWidth('setting_button')" onclick="showmenu('setting_nav'),showmenu('main_nav') " src="asset\Frame 14.svg">
             </a>
-            <a class="box_1" href="html\screenGame.html">
-                <img id="play_button" onload="loadWidth('play_button')" src="asset\Frame 3.svg">
+            <a class="box_1">
+                <img id="play_button" onload="loadWidth('play_button')" onclick="showmenu('game_body'),showmenu('main_nav'),replay()  " src="asset\Frame 3.svg">
             </a>
             <a class="box_1">
                 <img id="about_button" onload="loadWidth('about_button')" src="asset\Frame 15.svg">
@@ -33,8 +35,55 @@
         </div>
     </div>
 
+    <div class="main_box" id="game_body" style="display: none;">
+
+        <button class="fa fa-pause fa-3x" id="pause_button" aria-hidden="true" onclick="clickOnPlay(),pause()" style="display: none;"></button>
+        <div id="clock">0</div>
+
+        <div id="score">0</div>
+
+        <div class="box_content" id="nav1">
+            <div class="menu_play">
+                <button class="button1" onclick="replay()">chơi lại</button>
+                <button class="button1" id="continue" onclick="clickOnPlay(),play()">tiếp tục</button>
+                <button class="button1" onclick="showmenu('game_body'),showmenu('main_nav'),backHome()"> trở về </button>
+            </div>
+            <div id="over"></div>
+        </div>
+        <div class="question_box" id="main_question" style="display :none;">
+            <div id="question"></div>
+        </div>
+
+        <div id="answer_box" style="display: none;">
+            <div class="ans_content">
+                <button class="answer_button" id="ans1" onclick="checkresult('ans1')"></button>
+                <button class="answer_button" id="ans2" onclick="checkresult('ans2')"></button>
+                <button class="answer_button" id="ans3" onclick="checkresult('ans3')"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_box" id="setting_nav" style="display: none;">
+        <button class="back_button" onclick="showmenu('main_nav'),showmenu('setting_nav')"> < trở về &nbsp; </button>
+        <div class="Bar1">
+            <div class="font_setting">Nhạc nền : </div>
+            <div id="volume-slider-con" class="volume-con">
+                <div id="volume-slider" class="volume"></div>
+            </div>
+        </div>
+
+        <div class="Bar1">
+            <div class="font_setting">Hiệu ứng : </div>
+            <div id="volume-slider-con1" class="volume-con">
+                <div id="volume-slider1" class="volume"></div>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="javascript\bubbly_bg.js"></script>
+    <script src="javascript\audio.js"></script>
 
     <script>
         var abc = (cv) => bubbly({
@@ -45,7 +94,7 @@
         var cv1 = document.getElementById('cv1');
         window.onload = () => {
             abc(cv1);
-
+            updateAudio();
         }
     </script>
 </body>

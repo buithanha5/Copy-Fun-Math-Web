@@ -37,6 +37,19 @@ function replay() {
     }
 }
 
+function backHome() {
+    i = 0;
+    score = 0;
+    $('#score').text(score);
+    $('#clock').text(time);
+    var x = document.getElementById('continue');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'block';
+    }
+}
+
 function play() {
     interval = setInterval(function() {
         if (i >= time) {
