@@ -58,7 +58,7 @@ function play() {
             playAudio('audio3');
             clickOnPlay();
             ramdomAnswer();
-            $('#over').text('game over score : ' + score);
+            $('#over').text('Điểm của bạn là: ' + score);
             score = 0;
             showmenu('continue');
         }
@@ -161,7 +161,7 @@ function checkresult(id) {
     if (resultchoose.textContent == resultOfab) {
         ramdomAnswer();
         playAudio('audio2');
-        i -= 2;
+        i -= 1;
         score++;
         $('#score').text(score);
     } else {
@@ -170,7 +170,7 @@ function checkresult(id) {
         pause();
         i = 0;
         showmenu('continue')
-        $('#over').text('game over score : ' + score);
+        $('#over').text('Điểm của bạn là: ' + score);
         clickOnPlay();
         score = 0;
     }

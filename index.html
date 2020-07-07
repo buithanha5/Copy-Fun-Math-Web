@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fun Math web</title>
+    <link rel="shortcut icon" type="image/png" href="asset\icon.png" />
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -30,7 +31,7 @@
                 <img id="play_button" onload="loadWidth('play_button')" onclick="showmenu('game_body'),showmenu('main_nav'),replay()  " src="asset\Frame 3.svg">
             </a>
             <a class="box_1">
-                <img id="about_button" onload="loadWidth('about_button')" src="asset\Frame 15.svg">
+                <img id="about_button" onload="loadWidth('about_button')" onclick="showmenu('main_nav'),showmenu('about_nav')" src="asset\Frame 15.svg">
             </a>
         </div>
     </div>
@@ -80,11 +81,32 @@
         </div>
     </div>
 
-
+    <div class="main_box" id="about_nav" style="display: none;">
+        <div id="style-11">
+            <button class="back_button" onclick="showmenu('main_nav'),showmenu('about_nav')"> < trở về &nbsp; </button>
+            <h1 class="top"> Cách chơi : </h1>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; bấm nút bắt đầu để chơi </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; bạn có 1 phút để tính được nhiều đáp án nhất có thể thời gian còn lại hiển thị ở trên cùng của màn hình </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; câu hỏi hiển thị ở giữa màn hình và di chuyển liên tục </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; độ khó tăng dần theo điểm của bạn </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; có ba đáp án ở dưới màn hình chọn đáp án đúng nhất , chọn đúng bạn được thưởng thêm thời gian </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; nút tạm dùng ở góc trên bên trái </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; điểm được hiển thị ở góc trên bên phải </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; hay cố gắng để đặt điểm cao nhất và luyện tập khả năng tính toán của mình </h2>
+            <h1 class="top"> Thông tin về game : </h1>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; game được làm bởi @buithanh </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; làm theo game gốc FunMath trên ios </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; <a style="color: black;" href="https://github.com/buithanha5/Copy-Fun-Math-Web"> mã nguồn mở thêm gitHub </a> </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; hỗ trợ hoạt động gitHub page </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; hỗ trợ ngôn ngữ javascript,css,html </h2>
+            <h2 class="fa fa-arrow-right fa-2x" aria-hidden="true">&nbsp; hỗ trợ trình duyệt chrome , ms Edge , cốc côc ... </h2>
+            <h1 class="top"> Cảm ơn các bạn đã ủng hộ . Chúc các bạn chơi game vui vể ! (^>^) </h1>
+            <h1>&nbsp; </h1>
+        </div>
+    </div>
 
     <script src="javascript\bubbly_bg.js"></script>
     <script src="javascript\audio.js"></script>
-
     <script>
         var abc = (cv) => bubbly({
             bubbles: 60,
